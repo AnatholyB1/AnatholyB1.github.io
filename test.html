@@ -1,47 +1,181 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jeux du Cercle</title>
-    <style>
-        body { font-family: Arial, sans-serif; display: flex; height: 100vh; justify-content: center; align-items: center; background-color: #f0f0f0; }
-        canvas { border: 1px solid black; background-color: white; }
-    </style>
+    <title>Games</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 </head>
-<body>
-<canvas id="gameCanvas" width="500" height="500"></canvas>
+<body class="is-preload">
+    <!-- Wrapper -->
+        <div id="wrapper" class="fade-in">
 
-<script>
-    const canvas = document.getElementById('gameCanvas');
-    const ctx = canvas.getContext('2d');
-    const circleRadius = 30;
-    
-    let circleX = Math.random() * (canvas.width - circleRadius * 2) + circleRadius;
-    let circleY = Math.random() * (canvas.height - circleRadius * 2) + circleRadius;
+            <!-- Intro -->
+                <div id="intro">
+                    <h1>BRICON ANATHOLY<br />
+                    PORTFOLIO</h1>
+                    <p>Welcome to my portfolio website. I'm a passionate developer specializing in web development, backend development, and software development. With a focus on delivering high-quality solutions, I bring ideas to life through innovative coding and problem-solving skills. Explore my projects below to see my diverse range of work.</p>
+                    <ul class="actions">
+                        <li><a href="generic.html" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+                    </ul>
+                </div>
 
-    function drawCircle(x, y) {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.beginPath();
-        ctx.arc(x, y, circleRadius, 0, Math.PI * 2, false);
-        ctx.fillStyle = 'blue';
-        ctx.fill();
-        ctx.closePath();
-    }
+            <!-- Header -->
+                <header id="header">
+                    <a href="index.html" class="logo">Portfolio</a>
+                </header>
 
-    canvas.addEventListener('click', function(event) {
-        const rect = canvas.getBoundingClientRect();
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
+            <!-- Nav -->
+                <nav id="nav">
+                    <ul class="links">
+                        <li class="active"><a href="index.html">My Portfolio</a></li>
+                        <li><a href="generic.html">About me</a></li>
+                        <li><a href="test.html">gaming project test</a></li>
+                        <li><a href="ux_design_test.html">ux/ui test</a></li>
+                    </ul>
+                    <ul class="icons">
+                        <li><a href="https://www.linkedin.com/in/anatholy-bricon-9333a9190/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+                        <li><a href="https://github.com/AnatholyB1" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+                    </ul>
+                </nav>
 
-        if (Math.sqrt((x - circleX) ** 2 + (y - circleY) ** 2) < circleRadius) {
-            circleX = Math.random() * (canvas.width - circleRadius * 2) + circleRadius;
-            circleY = Math.random() * (canvas.height - circleRadius * 2) + circleRadius;
+            <!-- Main -->
+                <div id="main">
+
+                    <!-- Featured Post -->
+                        <article class="post featured">
+                            <header class="major">
+                                <span class="date">June 09, 2023</span>
+                                <h2><a href="#posts">This is my<br />
+                                projects</a></h2>
+                                <p>Explore my diverse range of projects, showcasing my skills in web development, backend development, and software development. Each project is a testament to my dedication and passion for creating innovative solutions.</p>
+                            </header>
+                            <a href="#posts" class="image main"><img src="images/pic01.jpg" alt="oups" /></a>
+                            <ul class="actions special">
+                                <li><a href="generic.html" class="button large">About me</a></li>
+                            </ul>
+                        </article>
+
+                    <!-- Posts -->
+                        <section class="posts" id="posts">
+                            <article>
+                                <header>
+                                    <span class="date">august 10, 2023</span>
+                                    <h2><a href="https://geckocabanerestaurant.com/">test<br />
+                                    game</a></h2>
+                                </header>
+                                <canvas id="gameCanvas" width="500" height="500"></canvas>
+                            </article>
+              
+                        </section>
+
+                    <!-- Footer -->
+                        <footer>
+                            <div class="pagination">
+                                <!--<a href="#" class="previous">Prev</a>-->
+                                <a href="#" class="page active">1</a>
+                                <span class="extra">&hellip;</span>
+                                <a href="#" class="next">Next</a>
+                            </div>
+                        </footer>
+
+                </div>
+
+            <!-- Footer -->
+                <footer id="footer">
+                    <section>
+                        <form method="post" action="#">
+                            <div class="fields">
+                                <div class="field">
+                                    <label for="name">Name</label>
+                                    <input type="text" name="name" id="name" />
+                                </div>
+                                <div class="field">
+                                    <label for="email">Email</label>
+                                    <input type="text" name="email" id="email" />
+                                </div>
+                                <div class="field">
+                                    <label for="message">Message</label>
+                                    <textarea name="message" id="message" rows="3"></textarea>
+                                </div>
+                            </div>
+                            <ul class="actions">
+                                <li><input type="submit" value="Send Message" /></li>
+                            </ul>
+                        </form>
+                    </section>
+                    <section class="split contact">
+                        <section class="alt">
+                            <h3>Address</h3>
+                            <p>45000 Orléans<br />
+                            France</p>
+                        </section>
+                        <section>
+                            <h3>Phone</h3>
+                            <p>+33 6 07 18 41 33</p>
+                        </section>
+                        <section>
+                            <h3>Email</h3>
+                            <p><a href="https://mail.google.com/">anatholyb@gmail.com</a></p>
+                        </section>
+                        <section>
+                            <h3>Social</h3>
+                            <ul class="icons alt">
+                                <li><a href="https://www.linkedin.com/in/anatholy-bricon-9333a9190/" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+                                <li><a href="https://github.com/AnatholyB1" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+                            </ul>
+                        </section>
+                    </section>
+                </footer>
+
+            <!-- Copyright -->
+                <div id="copyright">
+                    <ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+                </div>
+
+        </div>
+
+    <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.scrollex.min.js"></script>
+        <script src="assets/js/jquery.scrolly.min.js"></script>
+        <script src="assets/js/browser.min.js"></script>
+        <script src="assets/js/breakpoints.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <script src="assets/js/main.js"></script>
+        <script src="assets/js/overley.js"></script>
+        <script>
+            const canvas = document.getElementById('gameCanvas');
+            const ctx = canvas.getContext('2d');
+            const circleRadius = 30;
+            
+            let circleX = Math.random() * (canvas.width - circleRadius * 2) + circleRadius;
+            let circleY = Math.random() * (canvas.height - circleRadius * 2) + circleRadius;
+        
+            function drawCircle(x, y) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.beginPath();
+                ctx.arc(x, y, circleRadius, 0, Math.PI * 2, false);
+                ctx.fillStyle = 'blue';
+                ctx.fill();
+                ctx.closePath();
+            }
+        
+            canvas.addEventListener('click', function(event) {
+                const rect = canvas.getBoundingClientRect();
+                const x = event.clientX - rect.left;
+                const y = event.clientY - rect.top;
+        
+                if (Math.sqrt((x - circleX) ** 2 + (y - circleY) ** 2) < circleRadius) {
+                    circleX = Math.random() * (canvas.width - circleRadius * 2) + circleRadius;
+                    circleY = Math.random() * (canvas.height - circleRadius * 2) + circleRadius;
+                    drawCircle(circleX, circleY);
+                }
+            });
+        
             drawCircle(circleX, circleY);
-        }
-    });
+        </script>
 
-    drawCircle(circleX, circleY);
-</script>
 </body>
 </html>

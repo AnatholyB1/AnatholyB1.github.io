@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeux du Cercle</title>
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; height: 100vh; justify-content: center; align-items: center; background-color: #f0f0f0; }
+        canvas { border: 1px solid black; background-color: white; }
+    </style>
+</head>
+<body>
+<canvas id="gameCanvas" width="500" height="500"></canvas>
+
+<script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    const circleRadius = 30;
+    
+    let circleX = Math.random() * (canvas.width - circleRadius * 2) + circleRadius;
+    let circleY = Math.random() * (canvas.height - circleRadius * 2) + circleRadius;
+
+    function drawCircle(x, y) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.beginPath();
+        ctx.arc(x, y, circleRadius, 0, Math.PI * 2, false);
+        ctx.fillStyle = 'blue';
+        ctx.fill();
+        ctx.closePath();
+    }
+
+    canvas.addEventListener('click', function(event) {
+        const rect = canvas.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+
+        if (Math.sqrt((x - circleX) ** 2 + (y - circleY) ** 2) < circleRadius) {
+            circleX = Math.random() * (canvas.width - circleRadius * 2) + circleRadius;
+            circleY = Math.random() * (canvas.height - circleRadius * 2) + circleRadius;
+            drawCircle(circleX, circleY);
+        }
+    });
+
+    drawCircle(circleX, circleY);
+</script>
+</body>
+</html>

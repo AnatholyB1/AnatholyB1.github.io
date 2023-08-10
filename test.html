@@ -161,16 +161,22 @@
                 ctx.fill();
                 ctx.closePath();
             }
-        
+            function flashCanvas() {
+                ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+            }
             canvas.addEventListener('click', function(event) {
                 const rect = canvas.getBoundingClientRect();
                 const x = event.clientX - rect.left;
                 const y = event.clientY - rect.top;
         
                 if (Math.sqrt((x - circleX) ** 2 + (y - circleY) ** 2) < circleRadius) {
-                    circleX = Math.random() * (canvas.width - circleRadius * 2) + circleRadius;
-                    circleY = Math.random() * (canvas.height - circleRadius * 2) + circleRadius;
-                    drawCircle(circleX, circleY);
+                    flashCanvas();
+                    setTimeout(() => {
+                        circleX = Math.random() * (canvas.width - circleRadius * 2) + circleRadius;
+                        circleY = Math.random() * (canvas.height - circleRadius * 2) + circleRadius;
+                        drawCircle(circleX, circleY);
+                    }, 100);  // 100ms delay pour voir l'effet de flash
                 }
             });
         

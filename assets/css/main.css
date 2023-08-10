@@ -4688,6 +4688,15 @@ input, select, textarea {
 
 	}
 
+	#gameCanvas {
+		border: 1px solid #aaa;
+		box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+		display: block;
+		margin: 0 auto; /* pour centrer le canvas */
+		max-width: 100%; 
+    	height: auto;
+	}
+
 	#overlay {
 		display: none;
 		position: fixed;
